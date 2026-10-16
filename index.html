@@ -1,1 +1,92 @@
-PLACEHOLDER_REPLACE_ME
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как работает современный ИИ — просто</title>
+<style>
+  body { margin: 0; font-family: Arial, sans-serif; background: #f4f7fb; color: #222; }
+  .slide { min-height: 100vh; padding: 40px 60px; box-sizing: border-box; display: none; }
+  .slide.active { display: block; }
+  h1 { font-size: 2.8em; color: #1a3a6b; margin-bottom: 10px; }
+  h2 { font-size: 2.2em; color: #1a3a6b; }
+  p, li { font-size: 1.4em; line-height: 1.6; }
+  .nav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; }
+  button { padding: 12px 24px; font-size: 1.1em; background: #1a3a6b; color: white; border: none; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #0d2a50; }
+  .highlight { background: #e8f0fe; padding: 20px; border-radius: 10px; margin: 20px 0; }
+</style>
+</head>
+<body>
+
+<div class="slide active" id="s1">
+  <h1>Как работает современный ИИ</h1>
+  <h2>Простыми словами для тех, кто не из IT</h2>
+  <p>Вы хотите понять, что происходит внутри, когда вы задаёте вопрос ChatGPT, Grok или Claude?</p>
+  <p>Сейчас расскажем без сложных терминов.</p>
+</div>
+
+<div class="slide" id="s2">
+  <h2>Представьте большой офис</h2>
+  <p>Модель — это как огромный офис с сотнями сотрудников.</p>
+  <p>Когда приходит вопрос, не все сразу бегут работать. Есть человек, который смотрит на задачу и зовёт только нужных специалистов.</p>
+</div>
+
+<div class="slide" id="s3">
+  <h2>Текст превращается в карточки</h2>
+  <p>Ваш текст сначала режут на маленькие кусочки (токены) — примерно как слова или части слов.</p>
+  <p>Каждый кусочек превращают в карточку с цифрами и пометкой, на каком месте он стоял.</p>
+</div>
+
+<div class="slide" id="s4">
+  <h2>Смотрим, что важно</h2>
+  <p>Это называется attention — «внимание».</p>
+  <p>Модель оглядывается на предыдущие слова и решает, какие из них сейчас самые важные. Как когда вы пишете и вспоминаете, о чём речь.</p>
+</div>
+
+<div class="slide" id="s5">
+  <h2>Зовём только нужных</h2>
+  <div class="highlight">
+    <p>Вместо того чтобы гонять всю огромную модель на каждый кусочек текста, она вызывает только несколько специалистов из сотен.</p>
+    <p>Один хорошо считает, другой знает факты, третий хорошо формулирует. Остальные отдыхают.</p>
+  </div>
+  <p>Поэтому модель может быть очень умной, но отвечать относительно быстро.</p>
+</div>
+
+<div class="slide" id="s6">
+  <h2>Как она учится</h2>
+  <p>Сначала модель читает огромное количество текста и учится предсказывать следующее слово.</p>
+  <p>Потом её учат отвечать полезно, следовать инструкциям и думать шаг за шагом.</p>
+  <p>Это как сначала научить человека читать много книг, а потом — отвечать на вопросы и решать задачи.</p>
+</div>
+
+<div class="slide" id="s7">
+  <h2>Итог</h2>
+  <p>Современный ИИ — это большая команда специалистов, которая:</p>
+  <ul>
+    <li>смотрит на важные части вашего текста</li>
+    <li>вызывает только нужных людей из большой команды</li>
+    <li>предсказывает ответ кусочек за кусочком</li>
+  </ul>
+  <p>Всё остальное — детали. Главное — она не считает всё сразу, а работает выборочно.</p>
+</div>
+
+<div class="nav">
+  <button onclick="prev()">Назад</button>
+  <button onclick="next()">Дальше</button>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+function show(n) {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[n].classList.add('active');
+  current = n;
+}
+function next() { if (current < slides.length - 1) show(current + 1); }
+function prev() { if (current > 0) show(current - 1); }
+show(0);
+</script>
+</body>
+</html>
